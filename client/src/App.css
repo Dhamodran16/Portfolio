@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.dropdown {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px); /* <-- This moves it off-screen! */
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+.dropdown.open {
+  transform: translateY(0);
+}

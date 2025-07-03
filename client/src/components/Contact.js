@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://portfolio-q27k.onrender.com"
+    : "";
+
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('');
@@ -11,12 +16,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
-    // TODO: Replace with actual API endpoint
+    const { name, email, phone, message } = form;
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+      const res = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message })
       });
       const data = await res.json();
       if (res.ok) {

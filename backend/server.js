@@ -5,9 +5,17 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 
-app.use(cors());
+const allowedOrigins = [
+  "https://portfolio-1-95yx.onrender.com",
+  "http://localhost:3000"
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use(express.json());
 
 app.post('/api/contact', async (req, res) => {
