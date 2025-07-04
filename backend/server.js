@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 const allowedOrigins = [
-  "https://portfolio-client-syuq.onrender.com",
+  "https://portfolioforme.onrender.com",
   "http://localhost:3000"
 ];
 
