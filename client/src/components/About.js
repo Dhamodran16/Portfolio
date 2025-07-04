@@ -20,6 +20,32 @@ const About = () => (
              
               Outside of development, I love exploring new tools in AI, experimenting with productivity-based projects, and staying on top of emerging trends in the tech ecosystem.
             </p>
+                
+          </div>
+                <div style={{ display: 'flex', gap: '0.5rem', margin: '10px 0' }}>
+            <button
+              className="resume-btn small"
+              style={{ padding: '2px 6px' }}
+              onClick={() => window.open('/Resume-Dhamodran.pdf', '_blank', 'noopener,noreferrer')}
+            >
+              View Resume
+            </button>
+            <button
+              className="resume-btn small"
+              style={{ padding: '2px 6px' }}
+              onClick={() => {
+                // Use a direct link for the download attribute
+                const link = document.createElement('a');
+                link.href = '/Resume-Dhamodran.pdf'; // This must match the file name in your public folder
+                link.setAttribute('download', 'Resume-Dhamodran.pdf');
+                link.setAttribute('target', '_blank'); // Optional: open in new tab if browser blocks download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              Download Resume
+            </button>
           </div>
           <div className="button">
             <button onClick={() => window.open("https://github.com/Dhamodran16", "_blank")}>View All Projects</button>
