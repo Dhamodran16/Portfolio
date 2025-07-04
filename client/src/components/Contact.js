@@ -29,9 +29,17 @@ const Contact = () => {
         setForm({ name: '', email: '', phone: '', message: '' });
       } else {
         setStatus(data.error || 'Failed to send message.');
+        setTimeout(() => {
+          setStatus('');
+          setForm({ name: '', email: '', phone: '', message: '' });
+        }, 2000);
       }
     } catch (err) {
       setStatus('Failed to send message.');
+      setTimeout(() => {
+        setStatus('');
+        setForm({ name: '', email: '', phone: '', message: '' });
+      }, 2000);
     }
   };
 
