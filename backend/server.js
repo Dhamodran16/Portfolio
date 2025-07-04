@@ -8,8 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 const allowedOrigins = [
-  "https://portfolioforme.onrender.com",
-  "http://localhost:3000"
+  "https://portfolioforme.onrender.com"
 ];
 
 app.use(cors({
