@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://portfolio-q27k.onrender.com"
+    ? "https://portfolio-2zw7.onrender.com"
     : "";
 
 const Contact = () => {
