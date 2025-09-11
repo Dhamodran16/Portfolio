@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_lw1tuzb';
-const TEMPLATE_ID = 'template_0u699y9'; // Owner notification
-const PUBLIC_KEY = '3HuyUpeJdHdXLoiyG';
+const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID; // Owner notification
+const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -50,6 +50,11 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Ensure EmailJS is configured
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        setIsSubmitting(false);
+        return showStatus('Email service is not configured. Please set REACT_APP_EMAILJS_* in .env');
+      }
       // Send to you (Contact Us template)
       const result = await emailjs.send(
         SERVICE_ID,
