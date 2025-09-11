@@ -6,7 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
+AOS.init({
+  duration: 1200, // default duration for all animations
+  once: true,     // animate only once per element
+  easing: 'ease-in-out', // smoother animation
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

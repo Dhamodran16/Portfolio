@@ -1,46 +1,87 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
-const API_BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://portfolio-2zw7.onrender.com"
-    : "";
+const SERVICE_ID = 'service_lw1tuzb';
+const TEMPLATE_ID = 'template_0u699y9'; // Owner notification
+const PUBLIC_KEY = '3HuyUpeJdHdXLoiyG';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    if (!form.name || !form.email || !form.phone || !form.message) {
+      setStatus('All fields are required.');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setStatus('Invalid email format.');
+      return false;
+    }
+
+    // allow leading 0 or country codes, 7-15 digits
+    const phoneRegex = /^[+]?[0-9]{7,15}$/;
+    if (!phoneRegex.test(form.phone.replace(/\s/g, ''))) {
+      setStatus('Please enter a valid phone number.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const showStatus = (message) => {
+    setStatus(message);
+    setTimeout(() => setStatus(''), 5000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Sending...');
-    const { name, email, phone, message } = form;
+    if (isSubmitting) return;
+    if (!validateForm()) return;
+
+    setStatus('Sending your message...');
+    setIsSubmitting(true);
+
     try {
-      const res = await fetch(`${API_BASE_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, message })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setStatus('Message sent successfully!');
+      // Send to you (Contact Us template)
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone,
+          message: form.message,
+          to_name: 'Dhamodraprasath CM',
+          reply_to: form.email,
+        },
+        PUBLIC_KEY
+      );
+
+      if (result && result.text === 'OK') {
+        showStatus('Message sent successfully! I will get back to you soon.');
         setForm({ name: '', email: '', phone: '', message: '' });
       } else {
-        setStatus(data.error || 'Failed to send message.');
-        setTimeout(() => {
-          setStatus('');
-          setForm({ name: '', email: '', phone: '', message: '' });
-        }, 2000);
+        showStatus('Failed to send message. Please try again.');
       }
-    } catch (err) {
-      setStatus('Failed to send message.');
-      setTimeout(() => {
-        setStatus('');
-        setForm({ name: '', email: '', phone: '', message: '' });
-      }, 2000);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      let errorMessage = 'Failed to send message. ';
+      if (error && typeof error.status === 'number') {
+        if (error.status === 401) errorMessage = 'EmailJS authentication failed. Please check your public key.';
+        else if (error.status === 429) errorMessage = 'Too many requests. Please wait a moment and try again.';
+        else if (error.status >= 500) errorMessage = 'Server error. Please try again later.';
+      }
+      showStatus(errorMessage);
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -70,4 +111,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

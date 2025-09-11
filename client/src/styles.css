@@ -414,10 +414,10 @@ section {
 .button button {
     outline: none;
     width: fit-content;
-    padding: 10px 20px;
+    padding: 10px 24px; /* align with resume button */
     border-radius: 4px;
-    font-size: 100%;
-    font-weight: 400;
+    font-size: 1rem; /* align with resume button */
+    font-weight: 600; /* align with resume button */
     background: #077b32;
     color: #fff;
     border: 2px solid transparent;
@@ -427,7 +427,7 @@ section {
 
 .button button:hover {
     border-color: #077b32;
-    background-color: #010101;
+    background-color: transparent;
     color: #077b32;
 }
 
@@ -520,6 +520,188 @@ section {
     line-height: 1.6;
 }
 
+/* Tech Stack Container */
+.tech-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.tech-category {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(7, 123, 50, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(7, 123, 50, 0.1);
+    border-color: rgba(7, 123, 50, 0.4);
+}
+
+.category-title {
+    color: #e2eee6;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #077b32, #00ff88);
+    border-radius: 2px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.tech-item:hover::before {
+    left: 100%;
+}
+
+.tech-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(7, 123, 50, 0.3);
+    border-color: var(--tech-color, #077b32);
+}
+
+.tech-logo {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover .tech-logo {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.tech-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.tech-item:hover .tech-name {
+    color: var(--tech-color, #077b32);
+}
+
+/* Soft Skills Section */
+.soft-skills-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: rgba(7, 123, 50, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(7, 123, 50, 0.2);
+}
+
+.soft-skills-title {
+    color: #e2eee6;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.soft-skills-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #077b32, #00ff88);
+    border-radius: 2px;
+}
+
+.soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.soft-skill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.soft-skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(7, 123, 50, 0.2);
+    border-color: #077b32;
+}
+
+.soft-skill-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.soft-skill:hover .soft-skill-icon {
+    transform: scale(1.2);
+}
+
+.soft-skill-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .skills-grid {
@@ -538,6 +720,71 @@ section {
 @media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr; /* 1 item per row on mobile */
+    }
+}
+
+/* Tech Stack Responsive Design */
+@media (max-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .tech-item {
+        padding: 15px;
+    }
+
+    .tech-logo {
+        font-size: 2rem;
+    }
+
+    .tech-name {
+        font-size: 12px;
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+
+    .soft-skill {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .tech-item {
+        padding: 12px;
+    }
+
+    .tech-logo {
+        font-size: 1.8rem;
+    }
+
+    .tech-name {
+        font-size: 11px;
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .soft-skill {
+        padding: 15px;
+    }
+
+    .category-title {
+        font-size: 20px;
+    }
+
+    .soft-skills-title {
+        font-size: 20px;
     }
 }
 
@@ -617,7 +864,213 @@ section {
     color: #077b32;
     font-weight: bold;
 }
+
+/* Tech Stack Scroller Animations */
+@keyframes marquee-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-marquee-left {
+    animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-right {
+    animation: marquee-right 30s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+    animation-play-state: paused;
+}
+
+/* New simple scroll animations for tech stack rows */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 60s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 60s linear infinite;
+}
+
+
+
 /* Projects Section */
+/* Tech Stack Section - professional styling */
+.tech-stack-section {
+    background: black;
+    padding: 50px 0; /* reduced overall section gaps */
+}
+
+.tech-stack-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px; /* tighter header spacing */
+}
+
+.tech-stack-header .title-text {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.tech-stack-header .title-text::before,
+.tech-stack-header .title-text::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #077b32;
+    left: 0;
+    bottom: 0;
+}
+
+.tech-stack-header .title-text::after {
+    bottom: -7px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tech-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 36px; /* increased gap between rows */
+}
+
+.tech-row-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: 0 60px; /* keep items clear of edge masks with tighter spacing */
+}
+
+/* edge fade mask */
+.tech-row-wrap::before,
+.tech-row-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px; /* reduce mask width */
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tech-row-wrap::before {
+    left: 0;
+    background: linear-gradient(90deg, black 0%, rgba(0,0,0,0) 100%);
+}
+
+.tech-row-wrap::after {
+    right: 0;
+    background: linear-gradient(270deg, black 0%, rgba(0,0,0,0) 100%);
+}
+
+.tech-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+    white-space: nowrap;
+    overflow: visible; /* allow hovered items to render fully */
+    will-change: transform; /* smoother scrolling */
+    backface-visibility: hidden;
+}
+
+.tech-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #e2eee6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-pill:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(7, 123, 50, 0.25);
+    border-color: #077b32;
+    z-index: 5; /* render above edge masks */
+}
+
+.tech-icon {
+    font-size: 1.8rem; /* mid size */
+}
+
+.tech-name {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.tech-row:hover {
+    animation-play-state: paused;
+}
+
+/* disable masks and padding when not scrolling */
+.tech-row-wrap.no-scroll {
+    padding: 0;
+}
+.tech-row-wrap.no-scroll::before,
+.tech-row-wrap.no-scroll::after {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .tech-icon { font-size: 1.6rem; }
+    .tech-pill { padding: 10px 14px; gap: 10px; }
+}
+
+@media (max-width: 600px) {
+    .tech-icon { font-size: 1.4rem; }
+    .tech-name { font-size: 0.85rem; }
+}
+
+/* Tech stack responsive tweaks */
+@media (max-width: 768px) {
+    .tech-rows { gap: 24px; }
+    .tech-row { gap: 20px; }
+    .tech-row-wrap { padding: 0 24px; }
+    .tech-row-wrap::before,
+    .tech-row-wrap::after { width: 24px; }
+}
+
+@media (max-width: 480px) {
+    .tech-rows { gap: 16px; }
+    .tech-row { gap: 16px; }
+    .tech-row-wrap { padding: 0 16px; }
+    .tech-row-wrap::before,
+    .tech-row-wrap::after { width: 16px; }
+    .tech-pill { padding: 8px 12px; gap: 8px; }
+}
 .projects {
     background: black;
     padding: 80px 0;
@@ -1277,4 +1730,85 @@ footer .text a:hover {
   .content .typewriter {
     font-size: 1.1rem;
   }
+}
+
+.resume-btn, .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 15px;
+    color: #077b32;
+    background: none;
+    border: 2px solid #077b32;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    outline: none;
+    text-align: center;
+    white-space: normal; /* allow wrapping */
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Ensure consistent, fully fitting text across all buttons */
+button, .resume-btn, .contact-btn, .button button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.resume-btn:hover, .contact-btn:hover {
+    color: #fff;
+    background: #077b32;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .resume-btn, .contact-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 16px; /* ensure text has horizontal space */
+        margin-top: 10px;
+    }
+}
+
+/* Responsive layout for resume action buttons */
+.resume-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .resume-actions {
+        flex-direction: row; /* keep side-by-side on mobile */
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .resume-actions .resume-btn {
+        width: 48%; /* two buttons per row on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .resume-actions {
+        flex-direction: row; /* side by side on desktop */
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .resume-actions .resume-btn {
+        width: auto; /* natural width on desktop */
+    }
 }

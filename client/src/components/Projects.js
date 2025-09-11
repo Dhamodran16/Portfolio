@@ -4,7 +4,10 @@ const projectUrls = [
   "https://github.com/Dhamo/weather-forecasting",
   "https://github.com/Dhamodran16/webscraping.git",
   "https://github.com/Dhamodran16/GenAI-Quezz-game.git",
-  "https://github.com/Dhamodran16/FoodExpress.git"
+  "https://github.com/Dhamodran16/FoodExpress.git",
+  "https://github.com/Dhamodran16/dataset",
+  "https://github.com/Dhamodran16/AdminDashboard",
+  "https://github.com/Dhamodran16/InspiraNet"
 ];
 
 const Projects = () => (
@@ -51,6 +54,36 @@ const Projects = () => (
           <p>Built a full-stack food delivery app with real-time ordering, user login, and dynamic restaurant listings using React, Node.js, Tailwind CSS, and MongoDB Atlas.</p>
           <p><strong>Technologies used:</strong> React, TypeScript , Tailwind , MongoDB Atlas , Node.js , Express </p>
           <a href={projectUrls[3]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        {/* Project 5 */}
+        <div className="box">
+          <div className="icon">
+            <i className="fas fa-database"></i>
+          </div>
+          <div className="topic">Dataset Collection Application</div>
+          <p>Developed a Streamlit-based application to collect large numbers of images for training Python models for object detection, classification, and prediction. Enables collection of 1000+ images within 5 minutes. Includes an option to download all collected images as a single ZIP file for easy sharing and dataset management.</p>
+          <p><strong>Technologies used:</strong> Python, Streamlit, Pillow, Image Processing</p>
+          <a href={projectUrls[4]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        {/* Project 6 */}
+        <div className="box">
+          <div className="icon">
+            <i className="fas fa-chart-line"></i>
+          </div>
+          <div className="topic">AdminDashboard for Trintz Startup</div>
+          <p>Created a comprehensive admin dashboard to handle project management, client information, invoice details, and employee management with admin controls for the startup company Trintz.</p>
+          <p><strong>Technologies used:</strong> React, TypeScript, Node.js, Express, MongoDB</p>
+          <a href={projectUrls[5]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        {/* Project 7 */}
+        <div className="box">
+          <div className="icon">
+            <i className="fas fa-graduation-cap"></i>
+          </div>
+          <div className="topic">InspiraNet - Student Learning Platform</div>
+          <p>Built a comprehensive platform for students to learn and get guidance from faculty, senior alumni, and access internship/placement opportunities. Features include learning courses, career guidance, and placement drive information.</p>
+          <p><strong>Technologies used:</strong> React, TypeScript, Node.js, Express, MongoDB</p>
+          <a href={projectUrls[6]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </div>
     </div>

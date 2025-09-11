@@ -6,7 +6,7 @@ const About = () => (
       <div className="title"><span>About Me</span></div>
       <div className="about-details">
         <div className="left">
-          <img src="/portfolio-logo_1.webp" alt="Dhamodraprasath CM" />
+          <img src="/portfolio-logo.avif" alt="Dhamodraprasath CM" />
         </div>
         <div className="right">
           <div className="exp-area">
@@ -20,35 +20,39 @@ const About = () => (
              
               Outside of development, I love exploring new tools in AI, experimenting with productivity-based projects, and staying on top of emerging trends in the tech ecosystem.
             </p>
-                
           </div>
-                <div style={{ display: 'flex', gap: '0.5rem', margin: '10px 0' }}>
+          <div className="resume-actions">
             <button
-              className="resume-btn small"
-              style={{ padding: '2px 6px' }}
-              onClick={() => window.open('/Resume-Dhamodran.pdf', '_blank', 'noopener,noreferrer')}
+              className="resume-btn"
+              onClick={() => window.open('/resume.html', '_blank', 'noopener,noreferrer')}
             >
               View Resume
             </button>
             <button
-              className="resume-btn small"
-              style={{ padding: '2px 6px' }}
-              onClick={() => {
-                // Use a direct link for the download attribute
-                const link = document.createElement('a');
-                link.href = '/Resume-Dhamodran.pdf'; // This must match the file name in your public folder
-                link.setAttribute('download', 'Resume-Dhamodran.pdf');
-                link.setAttribute('target', '_blank'); // Optional: open in new tab if browser blocks download
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+              className="resume-btn"
+              onClick={async () => {
+                try {
+                  const response = await fetch('/Resume-Dhamodran.pdf', { cache: 'no-store' });
+                  const blob = await response.blob();
+                  const url = URL.createObjectURL(blob);
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = 'Resume-Dhamodran.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  URL.revokeObjectURL(url);
+                } catch (e) {
+                  // Fallback for older mobile browsers
+                  window.location.href = '/Resume-Dhamodran.pdf';
+                }
               }}
             >
               Download Resume
             </button>
           </div>
           <div className="button">
-            <button onClick={() => window.open("https://github.com/Dhamodran16", "_blank")}>View All Projects</button>
+            <button onClick={() => window.open("https://github.com/Dhamodran16?tab=repositories", "_blank")}>View All Projects</button>
           </div>
         </div>
       </div>
