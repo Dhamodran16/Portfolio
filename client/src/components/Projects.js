@@ -10,6 +10,16 @@ const projectUrls = [
   "https://github.com/Dhamodran16/InspiraNet"
 ];
 
+const liveUrls = [
+  "", // Weather Forecasting - no live demo
+  "", // Web Scraping - no live demo
+  "https://genai-quezz-game-2.onrender.com", // Gen AI Quiz Game - no live demo
+  "", // FoodExpress - add live URL if available
+  "", // Dataset Collection - no live demo
+  "", // AdminDashboard - add live URL if available
+  ""  // InspiraNet - add live URL if available
+];
+
 const Projects = () => (
   <section className="projects" id="projects">
     <div className="content">
@@ -23,7 +33,10 @@ const Projects = () => (
           <div className="topic">Machine Learning-Based Weather Forecasting</div>
           <p>Developed a predictive model for accurate weather forecasting using Python and Machine Learning.</p>
           <p><strong>Technologies used:</strong> Python, TensorFlow, Flask, OpenWeather API</p>
-          <a href={projectUrls[0]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[0]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[0] && <a href={liveUrls[0]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 2 */}
         <div className="box">
@@ -33,7 +46,10 @@ const Projects = () => (
           <div className="topic">Web Scraping Automation</div>
           <p>Built a web scraper to extract large-scale data from websites efficiently. Achieved 1st place in a Web Scraping competition.</p>
           <p><strong>Technologies used:</strong> Python, BeautifulSoup, Selenium</p>
-          <a href={projectUrls[1]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[1]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[1] && <a href={liveUrls[1]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 3 */}
         <div className="box">
@@ -43,7 +59,10 @@ const Projects = () => (
           <div className="topic">Gen AI Interactive Learning Games</div>
           <p>Developed an AI-powered interactive learning game to enhance user engagement. Officially certified by Intel Gen AI.</p>
           <p><strong>Technologies used:</strong> HTML , CSS , JavaScript , Python (Model)</p>
-          <a href={projectUrls[2]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[2]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[2] && <a href={liveUrls[2]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 4 */}
         <div className="box">
@@ -53,7 +72,10 @@ const Projects = () => (
           <div className="topic">FoodExpress – Smart Food Delivery Website</div>
           <p>Built a full-stack food delivery app with real-time ordering, user login, and dynamic restaurant listings using React, Node.js, Tailwind CSS, and MongoDB Atlas.</p>
           <p><strong>Technologies used:</strong> React, TypeScript , Tailwind , MongoDB Atlas , Node.js , Express </p>
-          <a href={projectUrls[3]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[3]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[3] && <a href={liveUrls[3]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 5 */}
         <div className="box">
@@ -63,7 +85,10 @@ const Projects = () => (
           <div className="topic">Dataset Collection Application</div>
           <p>Developed a Streamlit-based application to collect large numbers of images for training Python models for object detection, classification, and prediction. Enables collection of 1000+ images within 5 minutes. Includes an option to download all collected images as a single ZIP file for easy sharing and dataset management.</p>
           <p><strong>Technologies used:</strong> Python, Streamlit, Pillow, Image Processing</p>
-          <a href={projectUrls[4]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[4]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[4] && <a href={liveUrls[4]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 6 */}
         <div className="box">
@@ -73,7 +98,10 @@ const Projects = () => (
           <div className="topic">AdminDashboard for Trintz Startup</div>
           <p>Created a comprehensive admin dashboard to handle project management, client information, invoice details, and employee management with admin controls for the startup company Trintz.</p>
           <p><strong>Technologies used:</strong> React, TypeScript, Node.js, Express, MongoDB</p>
-          <a href={projectUrls[5]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[5]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[5] && <a href={liveUrls[5]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
         {/* Project 7 */}
         <div className="box">
@@ -83,7 +111,10 @@ const Projects = () => (
           <div className="topic">InspiraNet - Student Learning Platform</div>
           <p>Built a comprehensive platform for students to learn and get guidance from faculty, senior alumni, and access internship/placement opportunities. Features include learning courses, career guidance, and placement drive information.</p>
           <p><strong>Technologies used:</strong> React, TypeScript, Node.js, Express, MongoDB</p>
-          <a href={projectUrls[6]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+          <div className="project-buttons">
+            <a href={projectUrls[6]} className="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            {liveUrls[6] && <a href={liveUrls[6]} className="live-link" target="_blank" rel="noopener noreferrer">Live</a>}
+          </div>
         </div>
       </div>
     </div>

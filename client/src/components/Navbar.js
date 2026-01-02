@@ -18,6 +18,7 @@ const Navbar = () => {
         <div className="link"><a href="#about">About</a></div>
         <div className="link"><a href="#skills">Skills</a></div>
         <div className="link"><a href="#projects">Projects</a></div>
+        <div className="link"><a href="#internships">Internships</a></div>
         <div className="link"><a href="#services">Services</a></div>
         <div className="link"><a href="#contact">Contact</a></div>
       </div>
@@ -30,6 +31,7 @@ const Navbar = () => {
             <a href="#about" onClick={handleLinkClick}>About</a>
             <a href="#skills" onClick={handleLinkClick}>Skills</a>
             <a href="#projects" onClick={handleLinkClick}>Projects</a>
+            <a href="#internships" onClick={handleLinkClick}>Internships</a>
             <a href="#services" onClick={handleLinkClick}>Services</a>
             <a href="#contact" onClick={handleLinkClick}>Contact</a>
             <i className="fa-solid fa-xmark cancel" onClick={handleCancelClick}></i>
