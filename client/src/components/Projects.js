@@ -13,11 +13,11 @@ const projectUrls = [
 const liveUrls = [
   "", // Weather Forecasting - no live demo
   "", // Web Scraping - no live demo
-  "https://genai-quezz-game-2.onrender.com", // Gen AI Quiz Game - no live demo
-  "", // FoodExpress - add live URL if available
-  "", // Dataset Collection - no live demo
-  "", // AdminDashboard - add live URL if available
-  ""  // InspiraNet - add live URL if available
+  "https://genai-quezz-game-2.onrender.com", // Gen AI Quiz Game -  live demo
+  "https://foodexpress-frontend-tmf7.onrender.com", // FoodExpress - add live URL if available
+  "https://dataset-99t7.onrender.com", // Dataset Collection -  live demo
+  "https://admindashboard-8q8h.onrender.com", // AdminDashboard - add live URL if available
+  "https://inspiranet.onrender.com"  // InspiraNet - add live URL if available
 ];
 
 const Projects = () => (
