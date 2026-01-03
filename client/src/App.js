@@ -41,6 +41,19 @@ function App() {
     }
   }, [announcementClosed]);
 
+  // Disable right-click context menu
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
+
   return (
     <div className={announcementClosed ? 'animations-enabled' : 'animations-disabled'}>
       <Announcement onClose={() => setAnnouncementClosed(true)} />

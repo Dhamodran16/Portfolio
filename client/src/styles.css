@@ -1525,6 +1525,36 @@ section {
     }
 }
 
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.8), 0 0 10px rgba(40, 167, 69, 0.6), 0 0 15px rgba(40, 167, 69, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(40, 167, 69, 1), 0 0 20px rgba(40, 167, 69, 0.8), 0 0 30px rgba(40, 167, 69, 0.6);
+    }
+}
+
+.internships .box .status-dot.status-online-pulse {
+    animation: pulse 2s infinite;
+}
+
+.internships .box .status-dot.status-online-bounce {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.internships .box .status-dot.status-online-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
 .internships .box .internship-link {
     display: inline-block;
     margin-top: 15px;
