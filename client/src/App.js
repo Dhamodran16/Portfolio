@@ -17,7 +17,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
-  const [announcementClosed, setAnnouncementClosed] = useState(false);
+  const [announcementClosed, setAnnouncementClosed] = useState(true);
 
   useEffect(() => {
     if (announcementClosed) {
@@ -56,7 +56,6 @@ function App() {
 
   return (
     <div className={announcementClosed ? 'animations-enabled' : 'animations-disabled'}>
-      <Announcement onClose={() => setAnnouncementClosed(true)} />
       <Navbar />
       <Home />
       <Suspense fallback={<div style={{minHeight: '100vh', background: 'black'}}></div>}>

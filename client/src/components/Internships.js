@@ -45,6 +45,7 @@ const Internships = () => (
           </div>
           <p>US-based company in Chennai - Building a RAG (Retrieval-Augmented Generation) application for advanced AI solutions.</p>
           <p><strong>Company:</strong> Flatirons Solutions (US-based, Chennai)</p>
+          <a href="/flatirons_intern.jpeg" className="internship-link" target="_blank" rel="noopener noreferrer">View Details</a>
         </div>
       </div>
     </div>
