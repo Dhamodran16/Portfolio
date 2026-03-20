@@ -19,7 +19,7 @@ const Skills = () => (
             </div>
             <div className="skill">
               <div className="skill-name">Databases</div>
-              <div className="skill-list">MongoDB , FireBase </div>
+              <div className="skill-list">MongoDB , FireBase , MySQL , Cloudinary </div>
             </div>
             <div className="skill">
               <div className="skill-name">AI & Machine Learning</div>
